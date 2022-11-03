@@ -6,18 +6,4 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-}
-.child{
-    height: 300px;
-    width: 300px;
-    background-color: aquamarine;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-button{
-    background-color: burlywood;
-    color: blue;
-
 }
