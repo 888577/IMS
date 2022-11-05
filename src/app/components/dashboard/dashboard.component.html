@@ -1,1 +1,12 @@
-<p routerLink="/login">dashboard</p>
+
+<div class="parent">
+    <div class="child">
+        <h2 routerLink="create-student">Create student</h2><br>
+        <h2 routerLink="all-students">All Students</h2><br>
+        <button routerLink="/login">logout</button>
+
+    </div>
+    <div class="child1">
+        <router-outlet></router-outlet>
+    </div>
+</div>
