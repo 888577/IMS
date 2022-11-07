@@ -45,6 +45,9 @@ export class CreateStudentComponent implements OnInit {
       )
     )
   }
+  delete(i:number){
+    this.educationsFormArray.removeAt(i);
+  }
   
   
  constructor() { }
