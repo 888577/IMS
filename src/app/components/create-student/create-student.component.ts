@@ -24,6 +24,14 @@ export class CreateStudentComponent implements OnInit {
           pincode:new FormControl(null,[Validators.min(100000),Validators.max(999999)]),
         }
       ),
+      company:new FormControl(
+        {
+          name:new FormControl(),
+          location:new FormControl(),
+          package:new FormControl(),
+          offerDate:new FormControl()
+        }
+      ),
       educations:new FormArray([]),
       sourcetype:new FormControl(),
       sourceFrom:new FormControl(),

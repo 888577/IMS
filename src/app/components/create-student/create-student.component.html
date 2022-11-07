@@ -43,6 +43,16 @@
         <p *ngIf="studentForm.get('pincode')?.errors?.['min']">pincode no should be min 6 digits</p>
         <p *ngIf="studentForm.get('pincode')?.errors?.['max']">pincode no should be max 6 digits</p>
         </div>
+        <h1>Company</h1>
+        <label>Name:</label>
+        <input type="text" formControlName="name"><br>
+        <label>Location:</label>
+        <input type="text" formControlName="location"><br>
+        <label>Package:</label>
+        <input type="number" formControlName="package"><br>
+        <label>OfferDate</label>
+        <input type="date" formControlName="offerdate"><br>
+
     <button (click)="add()">Add educational details</button>
     <div formArrayName="educations">
         <div *ngFor="let education of educationsFormArray?.controls;let i=index">
@@ -51,6 +61,8 @@
                 <input type="text" formControlName="year" placeholder="year"><br>
                 <input type="number" formControlName="percentage" placeholder="percentage"><br>
                 <button class="btn btn-danger" (click)="delete(i)">delete</button>
+
+
 
             </div>
         </div>
