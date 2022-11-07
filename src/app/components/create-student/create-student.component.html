@@ -3,13 +3,26 @@
 <form [formGroup]="studentForm">
     <label>Name:</label>
     <input type="text" formControlName="name"><br>
+    <div class="error" *ngIf="studentForm.get('name')?.touched && studentForm.get('name')?.invalid">
+        <p *ngIf="studentForm.get('name')?.errors?.['required']">This field is required</p>
+        <p *ngIf="studentForm.get('name')?.errors?.['minlength']">Min 3 chars required</p>
+        <p *ngIf="studentForm.get('name')?.errors?.['maxlength']">Max 10 chars required</p>
+    </div>
     <label>Gender:</label>
     <input type="radio" name="gender" formControlName="male">
+    <div class="error" *ngIf="studentForm.get('gender')?.touched && studentForm.get('gender')?.invalid">
+
+    </div>
     <label>Male</label>
     <input type="radio" name="gender" formControlName="female">
     <label>Female</label><br>
     <label>Mobile:</label>
     <input type="number" formControlName="mobile"><br>
+    <div class="error"*ngIf="studentForm.get('mobile')?.touched && studentForm.get('mobile')?.invalid">
+        <p *ngIf="studentForm.get('mobile')?.errors?.['required']">This field is required</p>
+        <p *ngIf="studentForm.get('mobile')?.errors?.['min']">phone no should be min 10 digits</p>
+        <p *ngIf="studentForm.get('mobile')?.errors?.['max']">phone no should be max 10 digits</p>
+    </div>    
     <label>Email:</label>
     <input type="text" formControlName="email"><br>
     <label>Batch:</label>
@@ -25,6 +38,23 @@
     <input type="text" formControlName="state"><br>
     <label>Pincode:</label>
     <input type="number" formControlName="pincode"><br>
+    <div class="error"*ngIf="studentForm.get('pincode')?.touched && studentForm.get('pincode')?.invalid">
+        <p *ngIf="studentForm.get('pincode')?.errors?.['required']">This field is required</p>
+        <p *ngIf="studentForm.get('pincode')?.errors?.['min']">pincode no should be min 6 digits</p>
+        <p *ngIf="studentForm.get('pincode')?.errors?.['max']">pincode no should be max 6 digits</p>
+        </div>
+    <button (click)="add()">Add educational details</button>
+    <div formArrayName="educations">
+        <div *ngFor="let education of educationsFormArray?.controls;let i=index">
+            <div formGroupName="{{i}}">
+                <input type="text" formControlName="qualification" placeholder="qualification"><br>
+                <input type="text" formControlName="year" placeholder="year"><br>
+                <input type="number" formControlName="percentage" placeholder="percentage"><br>
+
+            </div>
+        </div>
+    </div>
+
     <button (click)="submit()">submit</button>
 
 </form>

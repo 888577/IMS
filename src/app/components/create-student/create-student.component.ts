@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-create-student',
@@ -9,9 +10,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class CreateStudentComponent implements OnInit {
   public studentForm:FormGroup=new FormGroup(
     {
-      name:new FormControl(),
+      name:new FormControl(null,[Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
       gender:new FormControl(),
-      mobile:new FormControl(),
+      mobile:new FormControl(null,[Validators.min(1000000000),Validators.max(9999999999)]),
       email:new FormControl(),
       batch:new FormControl(),
       address:new FormGroup(
@@ -20,13 +21,33 @@ export class CreateStudentComponent implements OnInit {
           mandal:new FormControl(),
           district:new FormControl(),
           state:new FormControl(),
-          pincode:new FormControl(),
+          pincode:new FormControl(null,[Validators.min(100000),Validators.max(999999)]),
         }
-      )
+      ),
+      educations:new FormArray([]),
+      sourcetype:new FormControl(),
+      sourceFrom:new FormControl(),
+      referalName:new FormControl()
+
     }
   )
-
-  constructor() { }
+  get educationsFormArray(){
+    return this.studentForm.get('educations')as FormArray;
+  }
+  add(){
+    this.educationsFormArray.push(
+      new FormGroup(
+        {
+          qualification:new FormControl(),
+          year:new FormControl(),
+          percentage:new FormControl()
+        }
+      )
+    )
+  }
+  
+  
+ constructor() { }
 
   ngOnInit(): void {
   }
@@ -34,5 +55,7 @@ export class CreateStudentComponent implements OnInit {
     console.log(this.studentForm);
     this.studentForm.markAllAsTouched();
   }
-
 }
+
+
+
