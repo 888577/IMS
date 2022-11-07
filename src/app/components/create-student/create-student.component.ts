@@ -33,9 +33,8 @@ export class CreateStudentComponent implements OnInit {
         }
       ),
       educations:new FormArray([]),
-      sourcetype:new FormControl(),
-      sourceFrom:new FormControl(),
-      referalName:new FormControl()
+      sourceType:new FormControl(),
+      
 
     }
   )

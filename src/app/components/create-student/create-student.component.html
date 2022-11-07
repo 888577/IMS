@@ -52,6 +52,13 @@
         <input type="number" formControlName="package"><br>
         <label>OfferDate</label>
         <input type="date" formControlName="offerdate"><br>
+        <div>
+            <label>Source type:</label>
+            <input type="radio" name="source type" formControlName="source type"value="direct">
+            <label>Direct</label>
+            <input type="radio" name="source type" formControlName="source type"value="refer">
+            <label>Refer</label>
+        </div>
 
     <button (click)="add()">Add educational details</button>
     <div formArrayName="educations">
