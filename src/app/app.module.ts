@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
 import { CreateStudentComponent } from './components/create-student/create-student.component';
 import { AllStudentsComponent } from './components/all-students/all-students.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { AllStudentsComponent } from './components/all-students/all-students.com
     PagenotfoundComponent,
     CreateStudentComponent,
     AllStudentsComponent,
+    StudentDetailsComponent,
 
   ],
   imports: [
