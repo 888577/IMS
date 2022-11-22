@@ -13,7 +13,7 @@ export class StudentService {
 return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students/"+id);
   }
   getStudents():Observable<any>{
-    return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students");
+    return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students/?limit=10&page=1");
   }
   getFilteredStudents(term:string):Observable<any>{
     return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students?filter="+term);
@@ -22,16 +22,8 @@ return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/student
     return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students?limit=10&page="+page);
   }
   getSortedStudents(column:string,order:string):Observable<any>{
-    return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students '+'?sortBy='+column+order'");
+    return this._httpClient.get<any[]>("https://62b9299dff109cd1dc8ca34f.mockapi.io/students"+'?sortBy=' +column+ '&order='+order);
   }
-  createStudent(data:any):Observable<any>{
-    return this._httpClient.post("https://62b9299dff109cd1dc8ca34f.mockapi.io/students",data);
-  }
-  updateStudent(id:string,data:any):Observable<any>{
-    return this._httpClient.put("https://62b9299dff109cd1dc8ca34f.mockapi.io/students/"+id,data);
-  }
-  deleteStudent(id:string):Observable<any>{
-    return this._httpClient.delete("https://62b9299dff109cd1dc8ca34f.mockapi.io/students/"+id);
-  }
+
 
 }

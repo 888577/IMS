@@ -26,7 +26,7 @@ export class CreateStudentComponent implements OnInit {
       ),
       company:new FormControl(
         {
-          name:new FormControl(null,[Validators.minLength(3),Validators.maxLength(10)]),
+          companyName:new FormControl(null,[Validators.minLength(3),Validators.maxLength(10)]),
           location:new FormControl(),
           package:new FormControl(null,[Validators.min(100000),Validators.max(999999)]),
           offerDate:new FormControl()
